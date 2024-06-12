@@ -1,4 +1,5 @@
 import "./App.css";
+import './responsive.css';
 import Body from "./components/Body/Body";
 import Header from "./components/Header/Header";
 import "@fontsource/inter";

@@ -1,5 +1,5 @@
 import React from "react";
-import Image from "../images/image2.png";
+import Img from "../images/image2.png";
 import { Icon } from "@iconify/react";
 import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 
@@ -8,7 +8,7 @@ function Activities() {
     <div className="description__compo__container">
       <div className="description__container">
         <div className="description__image">
-          <img src={Image} alt="image" />
+          <img src={Img} alt="img" />
           <p>WebhostingApp</p>
         </div>
       </div>

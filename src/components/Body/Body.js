@@ -9,10 +9,10 @@ function Body() {
     <Container>
       <div className="body__container">
         <Grid  container spacing={2}>
-          <Grid xs={4}>
+          <Grid xs={12} sm={12} md={12} lg={4} className='side__bar__main'>
             <SideBar />
           </Grid>
-          <Grid xs={8} className="main__body">
+          <Grid xs={12} sm={12} md={12} lg={8} className="main__body">
             <MainBody />
           </Grid>
         </Grid>

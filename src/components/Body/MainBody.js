@@ -5,10 +5,17 @@ import MenuItem from "@mui/material/MenuItem";
 import FormControl from "@mui/material/FormControl";
 import Select from "@mui/material/Select";
 import Activites from "../Activities/Activities";
+import ViewHeadlineIcon from "@mui/icons-material/ViewHeadline";
+import IconButton from "@mui/material/IconButton";
+import SideBar from "./SideBar";
+import CloseIcon from "@mui/icons-material/Close";
+import Slide from '@mui/material/Slide';
+
 
 function MainBody() {
   const [firstValue, setFirstValue] = useState("");
   const [secondValue, setScendValue] = useState("");
+  const [checkedSidebar, setCheckedSidebar] = useState(false)
 
   const handleFirstChange = (event) => {
     setFirstValue(event.target.value);
@@ -17,9 +24,26 @@ function MainBody() {
     setScendValue(event.target.value);
   };
 
+  const handleSidebarOpen = () => {
+    setCheckedSidebar(true);
+  }
+
+  const handleSidebarClose = () => {
+    setCheckedSidebar(false);
+  };
+  const handleBodyClose = (e) => {
+    let className = e.target.className;
+    if(className === 'cover__div'){
+      setCheckedSidebar(false)
+    }
+  }
+
   return (
     <div className="main__body__container">
       <div className="input__container m-left-20">
+        <IconButton className="side__bar__viewButton" onClick={handleSidebarOpen}>
+          <ViewHeadlineIcon />
+        </IconButton>
         <span className="input__icon">
           <SearchIcon />
         </span>
@@ -70,6 +94,16 @@ function MainBody() {
         <Activites />
         <Activites />
       </div>
+      <Slide direction="right" in={checkedSidebar} mountOnEnter unmountOnExit>
+      <div className="cover__div" onClick={handleBodyClose}>
+        <div className="inner__cover">
+          <div className="close__icon">
+            <IconButton onClick={handleSidebarClose}><CloseIcon /></IconButton>
+          </div>
+          <SideBar />
+        </div>
+      </div>
+      </Slide>
     </div>
   );
 }
